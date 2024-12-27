@@ -16,4 +16,3 @@ Route::post('/articles', [ArticleController::class, 'store']);
 Route::put('/articles/{article}', [ArticleController::class, 'update']);
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy']);
     
-    
