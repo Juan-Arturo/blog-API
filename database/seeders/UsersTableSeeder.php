@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //vaciar la tabla
+        //vaciar la tablañ
         User::truncate();
 
         $faker = \Faker\Factory::create();
