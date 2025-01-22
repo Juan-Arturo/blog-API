@@ -20,9 +20,12 @@ class UsersTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         // crear la misma clave para todoslos usuarios
-        $password = Hash::make('123456');
+        $password = Hash::make('123123');
 
-        User::create(['name' => 'Administrador', 'email' => 'admin@example.com', 'password' => $password]);
+        User::create([
+            'name' => 'Administrador', 
+            'email' => 'admin@example.com', 
+            'password' => $password]);
 
         //Generar 10 usuarios
         for ($i = 0; $i < 10; $i++) {
