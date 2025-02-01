@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -29,11 +30,21 @@ class UsersTableSeeder extends Seeder
 
         //Generar 10 usuarios
         for ($i = 0; $i < 10; $i++) {
-            User::create([
+            $user =User::create([
                 'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,
                 'password' => $password,
             ]);
+
+            //Generar categorías para cada usuario
+            $user->categories()->saveMany(
+                $faker->randomElements(
+                    array(
+                        Category::find(1),
+                        Category::find(2),
+                        Category::find(3),
+                    ), $faker->numberBetween(1,3), false)
+            );
         }
     }
 }
